@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker - Gewohnheiten verfolgen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎯 Habit Tracker</h1>
+            <p class="subtitle">Verfolge deine Gewohnheiten und baue Streaks auf</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Add Habit Section -->
+            <section class="add-habit-section">
+                <div class="add-habit-form">
+                    <input 
+                        type="text" 
+                        id="habitInput" 
+                        placeholder="Neue Gewohnheit eingeben..."
+                        class="habit-input"
+                    >
+                    <button id="addHabitBtn" class="btn btn-primary">
+                        <span>+</span> Hinzufügen
+                    </button>
+                </div>
+            </section>
+
+            <!-- Habits List -->
+            <section class="habits-section">
+                <div id="habitsList" class="habits-list">
+                    <p class="empty-message">Keine Gewohnheiten noch hinzugefügt. Starte mit einer neuen Gewohnheit!</p>
+                </div>
+            </section>
+
+            <!-- Calendar View -->
+            <section class="calendar-section">
+                <h2>📅 Kalenderübersicht</h2>
+                <div class="calendar-controls">
+                    <button id="prevMonth" class="btn btn-secondary">← Vorheriger Monat</button>
+                    <h3 id="monthYear" class="month-year"></h3>
+                    <button id="nextMonth" class="btn btn-secondary">Nächster Monat →</button>
+                </div>
+                <div class="calendar-container">
+                    <div class="weekdays">
+                        <div class="weekday">Mo</div>
+                        <div class="weekday">Di</div>
+                        <div class="weekday">Mi</div>
+                        <div class="weekday">Do</div>
+                        <div class="weekday">Fr</div>
+                        <div class="weekday">Sa</div>
+                        <div class="weekday">So</div>
+                    </div>
+                    <div id="calendar" class="calendar-grid"></div>
+                </div>
+                <div class="legend">
+                    <span class="legend-item"><span class="legend-box completed"></span> Erledigt</span>
+                    <span class="legend-item"><span class="legend-box pending"></span> Ausstehend</span>
+                    <span class="legend-item"><span class="legend-box missed"></span> Nicht erledigt</span>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal für Gewohnheitsdetails -->
+    <div id="habitModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2 id="modalHabitName"></h2>
+            <div class="modal-body">
+                <div class="habit-stats">
+                    <div class="stat">
+                        <div class="stat-value" id="currentStreak">0</div>
+                        <div class="stat-label">Aktueller Streak</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="bestStreak">0</div>
+                        <div class="stat-label">Best Streak</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="completionRate">0%</div>
+                        <div class="stat-label">Erfolgsquote</div>
+                    </div>
+                </div>
+                <div class="habit-calendar-view">
+                    <h3>Letzten 30 Tage</h3>
+                    <div id="modalCalendar" class="modal-calendar"></div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="deleteHabitBtn" class="btn btn-danger">Löschen</button>
+                <button id="closeModalBtn" class="btn btn-secondary">Schließen</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
